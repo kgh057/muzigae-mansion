@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>무지개맨션 장바구니 페이지</title>
+
+    <!-- 메인 CSS -->
+    <link rel="stylesheet" href="css/cart.css" />
+
+    <!-- 메인 미디어쿼리 CSS -->
+    <link rel="stylesheet" href="css/media_common.css" />
+
+    <!-- 메인 JS -->
+    <script src="js/cart.js" defer></script>
+  </head>
+  <body>
+    <header id="header">
+      <div class="header-group">
+        <div class="header-list">
+          <!-- 로고 -->
+          <h1 class="logo">
+            <a href="index.html"><img src="./image/logo.jpg" alt="" /></a>
+          </h1>
+          <!-- gnb 메뉴 -->
+          <nav class="gnb">
+            <ul class="nav-list">
+              <li><a href="product.html">PRODUCT</a></li>
+              <li><a href="collection.html">COLLECTION</a></li>
+              <li><a href="#">BRAND</a></li>
+              <li><a href="#">CURATION</a></li>
+            </ul>
+          </nav>
+          <!-- gnb btn -->
+          <button class="gnb-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <!-- 오른쪽 메뉴 -->
+          <div class="right-menu">
+            <div class="menu-list">
+              <a href="#">SEARCH</a>
+              <a href="account.html">ACCOUNT</a>
+              <a href="cart.html">CART</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- product 메뉴 -->
+      <div class="side-menu">
+        <button class="close">CLOSE</button>
+        <div class="side-menu-content">
+          <ul class="side-menu-list">
+            <li class="list">
+              <a href="product.html">PRODUCT</a>
+              <div class="menu-sub-list">
+                <ul>
+                  <li><a href="product.html?category=ALL">ALL</a></li>
+                  <li><a href="product.html?category=NEW">NEW</a></li>
+                  <li><a href="product.html?category=LIP">LIP</a></li>
+                  <li><a href="product.html?category=EYE">EYE</a></li>
+                  <li><a href="product.html?category=FACE">FACE</a></li>
+                  <li><a href="product.html?category=GIFT">GIFT</a></li>
+                  <li><a href="product.html?category=OBJET">OBJET</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="list"><a href="#">CURATION</a></li>
+            <li class="list"><a href="#">BRAND</a></li>
+            <li class="list"><a href="collection.html">COLLECTION</a></li>
+            <li class="list"><a href="event.html">EVENT</a></li>
+            <li class="list"><a href="account.html">ACCOUNT</a></li>
+          </ul>
+          <div class="sns">
+            <a href="#"><img src="./image/instagram.png" alt="인스타" /></a>
+            <a href="#"><img src="./image/X.png" alt="트위터" /></a>
+          </div>
+        </div>
+      </div>
+      <!-- search -->
+      <div class="search">
+        <div class="search-content">
+          <span>SEARCH</span>
+          <button class="search-close">CLOSE</button>
+          <!-- 검색 입력창 -->
+          <div class="search-input-wrap">
+            <input
+              type="text"
+              class="search-input"
+              placeholder="검색어를 입력해주세요"
+            />
+            <button class="search-btn">SEARCH</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 장바구니 -->
+    <div class="cartsec">
+      <div class="cart-part">
+        <!-- 맨위 -->
+        <div class="tab-style">
+          <h1>SHOPPING BAG</h1>
+          <!-- 국내/해외 -->
+          <div class="deliver">
+            <ul class="deliver-type">
+              <li class="active">
+                <a href="#" data-tab="domestic">국내배송상품 (0)</a>
+              </li>
+              <li><a href="#" data-tab="overseas">해외배송상품 (0)</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- 장바구니 -->
+        <div class="deliver-group">
+          <div class="deliver-content">
+            <p>장바구니가 비어 있습니다.</p>
+            <a href="index.html">BACK TO HOME</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 하단 -->
+    <footer class="footer banner-section">
+      <div class="footer-group">
+        <div class="company">
+          <strong class="title"><a href="#">무지개맨션</a></strong>
+          <p>
+            무지개맨션은 '무지개'의 다양성과 '맨션'의 공간을 결합하여, 각자의
+            개성으로 자신만의 공간을 채워가는 브랜드입니다. 우리는 일상의 모든
+            순간에서 영감을 얻으며, 흔히 지나치기 쉬운 익숙한 것들을 새로운
+            관점으로 재해석합니다.
+          </p>
+        </div>
+        <div class="customer">
+          <strong class="title">Customer Service</strong>
+          <div class="customer-list">
+            <a href="#">Notice</a>
+            <a href="#">Review</a>
+            <a href="#">Q&A</a>
+            <a href="#">Guide</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Privacy Polic</a>
+          </div>
+        </div>
+        <div class="info">
+          <strong class="title">Company Information</strong>
+          <div class="info-list">
+            사업자등록번호: 340-88-00089
+            <span>사업자정보확인</span>
+            <br />
+            대표자: 박양주
+            <br />
+            통신판매신고번호: 2023-서울용산-1831호
+            <br />
+            주소: 04378 서울특별시 용산구 한강대로 69 (한강로2가)
+            용산푸르지오써밋 업무동 602호
+            <br />
+            고객센터 서비스 센터
+            <a href="#">070-7714-5156</a>
+            <br />
+            이메일:
+            <a href="#">muzigae-mansion@lcmcosmetic.com</a>
+            <br />
+            해외 수출 문의:
+            <a href="#">muzigae-trade@lcmcosmetic.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="infinite">
+        <div class="infinite-area">
+          <span
+            >OBJET BOUTIQUE OBJET BOUTIQUE OBJET BOUTIQUE OBJET BOUTIQUE OBJET
+            BOUTIQUE</span
+          >
+          <span
+            >OBJET BOUTIQUE OBJET BOUTIQUE OBJET BOUTIQUE OBJET BOUTIQUE OBJET
+            BOUTIQUE</span
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

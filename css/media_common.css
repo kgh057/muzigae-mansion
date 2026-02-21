@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+/* 미디어쿼리 CSS */
+
+/****************************************** 1024 이하 ******************************************/
+@media (max-width: 1024px) {
+  /* 상단 */
+  .gnb {
+    display: none;
+  }
+
+  .gnb-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 50px;
+    height: 100%;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .gnb-btn span {
+    width: 18px;
+    height: 1px;
+    background: #000;
+  }
+
+  .menu-list > * {
+    padding: 0 10px;
+  }
+
+  /* search 닫기 마우스 오버시 제거 */
+  .search-close:hover {
+    background: none;
+    color: #fff;
+  }
+}
+
+/****************************************** 800 이하 ******************************************/
+@media (max-width: 800px) {
+  /* 로고이미지 크기 변경 */
+  .logo img {
+    height: 42px;
+  }
+
+  /* search */
+  .search {
+    padding: 30px 20px;
+  }
+
+  .search-content span {
+    font-size: 30px;
+  }
+
+  .search-close {
+    font-size: 16px;
+  }
+
+  .search-input-wrap {
+    width: 100%;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 8px 0;
+    font-size: 14px;
+  }
+
+  .search-btn {
+    font-size: 14px;
+  }
+
+  /* ACCOUNT 숨김 */
+  .menu-list a:nth-child(2) {
+    display: none;
+  }
+
+  /* 하단 strong 크기 조절 */
+  .title {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "event1": {
+    "images": [
+      "./image/event1_1.png",
+      "./image/event1_2.png",
+      "./image/event1_3.png",
+      "./image/event1_4.png",
+      "./image/event1_5.png",
+      "./image/event1_6.png"
+    ]
+  },
+  "event2": {
+    "images": ["./image/event2_1.jpg"]
+  }
+}

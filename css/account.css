@@ -1,0 +1,549 @@
+@charset "UTF-8";
+
+/* 외부 CSS 불러오기 */
+@import url(./reset.css);
+@import url(./core.css);
+
+/******************************** 상단 ********************************/
+#header {
+  position: relative;
+  z-index: 20;
+}
+
+.header-group {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  font-size: 12px;
+  padding: 10px;
+  box-sizing: border-box;
+  backdrop-filter: blur(3px);
+  /* mix-blend-mode: difference; */
+}
+
+.header-list {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 55px;
+}
+
+/* 로고 */
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  translate: -50% 0;
+}
+
+.logo img {
+  height: 58px;
+}
+
+/* gnb 메뉴 */
+.nav-list {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-list > * {
+  padding: 0 20px;
+}
+
+/* gnb-btn 숨김 */
+.gnb-btn {
+  display: none;
+}
+
+/* 오른쪽 메뉴 */
+.right-menu {
+  display: flex;
+  height: 100%;
+}
+
+.menu-list {
+  display: flex;
+  align-items: center;
+}
+
+.menu-list > * {
+  padding: 0 20px;
+}
+
+/* 메뉴 */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100vh;
+  color: #000;
+  background: #fff;
+  padding-top: 80px;
+  border-right: 1px solid #e0e0e0;
+  z-index: 50;
+  overflow-y: auto;
+  transition: left 0.4s ease;
+}
+
+.side-menu.active {
+  left: 0;
+}
+
+.side-menu-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 110px);
+  overflow-y: auto;
+  padding: 0 0px 50px;
+}
+
+.list {
+  border-top: 1px solid #e0e0e0;
+}
+
+.list > a {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 14px 20px;
+}
+
+.list:last-child > a {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.menu-sub-list {
+  background: #f5f5f5;
+  border-top: 1px solid #e0e0e0;
+}
+
+.menu-sub-list li > a {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 20px;
+}
+
+/* 닫기 버튼 */
+.close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  font-family: pretendard;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #222;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* SNS */
+.sns {
+  display: flex;
+  gap: 10px;
+  padding: 10px 20px 0;
+  margin-top: auto;
+}
+
+.sns img {
+  height: 20px;
+}
+
+/* search */
+.search {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 30px 50px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(16px);
+  transition: 0.3s;
+  z-index: 30;
+}
+
+.search.active {
+  display: block;
+}
+
+.search-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-content span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 90px;
+  color: #fff;
+  line-height: 1;
+  font-family: "Playfair Display";
+}
+
+/* search 입력창 */
+.search-input-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-input {
+  width: 560px;
+  height: auto;
+  padding: 30px 0;
+  font-size: 20px;
+  font-weight: 300;
+  color: #fff;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #fff;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #fff;
+}
+
+.search-btn {
+  position: absolute;
+  display: block;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-family: pretendard;
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+  padding: 4px 11px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  white-space: nowrap;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+/* search 닫기 버튼 */
+.search-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 40px;
+  padding: 4px 20px;
+  font-family: pretendard;
+  font-size: 20px;
+  font-weight: 400;
+  background: none;
+  cursor: pointer;
+  transition: 0.3s;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.search-close:hover {
+  background: #fff;
+  color: #000;
+}
+
+/******************************** 로그인 ********************************/
+.loginsec {
+  padding: 100px 0;
+}
+
+.login-part {
+  max-width: 1200px;
+  padding: 0 50px;
+  margin: 0 auto;
+  min-height: 80vh;
+}
+
+.input-group {
+  margin-bottom: 10px;
+}
+
+.input-group input {
+  width: 100%;
+  height: 50px;
+  font-size: 14px;
+  border: 1px solid #000;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.input-group input:focus {
+  outline: none;
+  border: 1px solid #000;
+}
+
+.input-group input::placeholder {
+  color: #ccc;
+}
+
+.error-msg {
+  display: none; /* 에러 없을 때 숨김 */
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* 로그인 */
+.login-input {
+  margin: 0 auto;
+}
+
+h1 {
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* 비회원 주문조회 */
+.guest-order-input {
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+h2 {
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+/* 버튼 */
+.login-btn button,
+.join-btn button {
+  width: 100%;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.login-btn {
+  margin-top: 30px;
+}
+
+.login-btn button {
+  background-color: #000;
+  color: #fff;
+}
+
+.join-btn button {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
+
+/* util */
+.login-util {
+  text-align: center;
+  margin: 20px 0 30px 0;
+}
+
+.login-util li {
+  display: inline-block;
+}
+
+.login-util a {
+  color: #868686;
+  font-size: 13px;
+}
+
+.login-util li:not(:last-child):after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 17px;
+  margin: 0 8px 0 12px;
+  background: #e0e0e0;
+  vertical-align: top;
+}
+
+/* SNS 로그인 */
+.sns-login {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.sns-login a {
+  display: block;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 50px;
+}
+
+/* 카카오 */
+.sns-login a:first-child {
+  background: #fee500 url(../image/ico_kakao.svg) no-repeat 20px 15px;
+  color: #000;
+}
+
+/* 네이버 */
+.sns-login a:last-child {
+  background: #1ec800 url(../image/ico_naver.svg) no-repeat 20px 15px;
+  color: #fff;
+}
+
+/* 맨밑 안내 */
+.order-notice {
+  position: relative;
+  font-size: 12px;
+  color: #868686;
+  padding: 0 0 0 14px;
+}
+
+.order-notice::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #868686;
+}
+
+/******************************** 미디어쿼리 ********************************/
+@media (max-width: 1024px) {
+  .loginsec {
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 750px) {
+  .login-part {
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: 550px) {
+  .login-part {
+    padding: 0 20px;
+    width: 421px;
+    margin: 0 auto;
+  }
+
+  .guest-order-input {
+    width: 421px;
+    margin: 0 auto;
+  }
+}
+
+/******************************** 하단 ********************************/
+.footer {
+  display: block;
+  position: relative;
+  height: auto;
+}
+
+.footer-group {
+  position: relative;
+  border-top: 1px solid #000;
+  margin: 0 20px;
+  padding: 100px 0 40px;
+}
+
+/* strong */
+.title {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+/* company */
+.company {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  word-break: keep-all;
+}
+
+.company p {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* customer */
+.customer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.customer-list {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  gap: 10px;
+}
+
+/* info */
+.info {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-list {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* infinite */
+.infinite {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.infinite-area {
+  display: flex;
+  font-size: 5vw;
+  width: max-content;
+  animation: infinite-ani 50s linear infinite;
+}
+
+@keyframes infinite-ani {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.infinite-area span {
+  font-weight: bold;
+  line-height: 1;
+}

@@ -1,0 +1,162 @@
+@charset "utf-8";
+
+/* 미디어쿼리 CSS */
+
+/****************************************** 1024 이하 ******************************************/
+@media (max-width: 1024px) {
+  /* 상단 */
+  .gnb {
+    display: none;
+  }
+
+  .gnb-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 50px;
+    height: 100%;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .gnb-btn span {
+    width: 18px;
+    height: 1px;
+    background: #fff;
+  }
+
+  .menu-list > * {
+    padding: 0 10px;
+  }
+
+  /* search 닫기 마우스 오버시 제거 */
+  .search-close:hover {
+    background: none;
+    color: #fff;
+  }
+
+  .banner-text-first {
+    font-size: 13px;
+  }
+
+  /* 배너 2~7번만 이미지 전환 */
+  .banner-section:nth-child(n + 2) .pc-img {
+    display: none;
+  }
+
+  .banner-section:nth-child(n + 2) .mobile-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .infinite-area {
+    font-size: 30px;
+  }
+}
+
+/****************************************** 800 이하 ******************************************/
+@media (max-width: 800px) {
+  /* 로고이미지 크기 변경 */
+  .logo img {
+    height: 42px;
+  }
+
+  /* search */
+  .search {
+    padding: 30px 20px;
+  }
+
+  .search-content span {
+    font-size: 30px;
+  }
+
+  .search-close {
+    font-size: 16px;
+  }
+
+  .search-input-wrap {
+    width: 100%;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 8px 0;
+    font-size: 14px;
+  }
+
+  .search-btn {
+    font-size: 14px;
+  }
+
+  /* ACCOUNT 숨김 */
+  .menu-list a:nth-child(2) {
+    display: none;
+  }
+
+  /* 배너 텍스트 위치 바꾸기 */
+  .banner-text-first {
+    display: none;
+  }
+
+  .banner-text {
+    padding: 30px;
+  }
+
+  .banner1-bottom {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .banner1-bottom img {
+    width: 100%;
+  }
+
+  .banner1-bottom p {
+    display: block;
+    font-size: 12px;
+    color: #fff;
+    line-height: 1.8;
+    padding-bottom: 40px;
+  }
+
+  /* 하단 strong 크기 조절 */
+  .title {
+    font-size: 18px;
+  }
+}
+
+/****************************************** 500 이하 ******************************************/
+@media (max-width: 500px) {
+  /* 첫 번째 배너는 100vh 유지 */
+  .banner-section-first {
+    height: 100vh;
+  }
+
+  /* 나머지 배너들만 auto */
+  .banner-section:not(.banner-section-first) {
+    height: auto;
+  }
+
+  .banner-group {
+    position: relative; /* absolute를 relative로 변경 */
+    height: auto; /* 100%를 auto로 변경 */
+  }
+
+  /* 첫 번째 배너 그룹은 absolute 유지 */
+  .banner-group-first {
+    position: absolute;
+    height: 100%;
+  }
+
+  .banner-group-first img {
+    position: static;
+    height: 100%;
+  }
+}

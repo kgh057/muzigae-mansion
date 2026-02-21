@@ -1,0 +1,155 @@
+{
+  "product1": {
+    "name": "NEW 오브제 글로시 미니 10종 택1",
+    "price": 13000,
+    "category": "ALL,LIP",
+    "images": ["./image/thumb1.png", "./image/thumb1_2.png"]
+  },
+  "product2": {
+    "name": "세븐 리커버리 마스크 7매입",
+    "price": 21000,
+    "category": "ALL,FACE",
+    "images": ["./image/thumb2.png"]
+  },
+  "product3": {
+    "name": "NEW 오브제 블러쉬 10종 택1",
+    "price": 17000,
+    "category": "ALL,NEW,FACE",
+    "images": [
+      "./image/thumb3.jpg",
+      "./image/thumb3_3.png",
+      "./image/thumb3_2.png",
+      "./image/thumb3_4.png"
+    ]
+  },
+  "product4": {
+    "name": "NEW 오브제 글로시 8종 택1",
+    "price": 19000,
+    "category": "ALL,NEW,LIP",
+    "images": [
+      "./image/thumb4.jpg",
+      "./image/thumb4_2.png",
+      "./image/thumb4_3.png"
+    ]
+  },
+  "product5": {
+    "name": "드 로즈 핸드크림 3종 택1",
+    "price": 24000,
+    "category": "ALL,OBJET",
+    "images": ["./image/thumb5.jpg"]
+  },
+  "product6": {
+    "name": "원앤온리 섀도우 15종 택1",
+    "price": 14000,
+    "category": "ALL,EYE",
+    "images": [
+      "./image/thumb6.jpg",
+      "./image/thumb6_2.png",
+      "./image/thumb6_3.png"
+    ]
+  },
+  "product7": {
+    "name": "슬릭 매트 쿠션 4종 택 1(본품)",
+    "price": 35000,
+    "category": "ALL,FACE",
+    "images": ["./image/thumb7.jpg"]
+  },
+  "product8": {
+    "name": "슬릭 워터 쿠션 5종 택 1",
+    "price": 29000,
+    "category": "ALL,FACE",
+    "images": ["./image/thumb8.jpg"]
+  },
+  "product9": {
+    "name": "타이 업 커버 틴트 6종 택 1",
+    "price": 18000,
+    "category": "ALL,LIP",
+    "images": ["./image/thumb9.jpg", "./image/thumb9_2.png"]
+  },
+  "product10": {
+    "name": "트위스트 팟 아이팔레트 5종 택1",
+    "price": 22000,
+    "category": "ALL,EYE",
+    "images": [
+      "./image/thumb10.jpg",
+      "./image/thumb10_2.png",
+      "./image/thumb10_3.png"
+    ]
+  },
+  "product11": {
+    "name": "슬릭매트 쿠션 퍼프 3P",
+    "price": 9000,
+    "category": "ALL,FACE",
+    "images": ["./image/thumb11.jpg"]
+  },
+  "product12": {
+    "name": "슬릭 매트 쿠션 4종 택 1(본품+리필세트)",
+    "price": 45000,
+    "category": "ALL,FACE",
+    "images": ["./image/thumb12.jpg"]
+  },
+  "product13": {
+    "name": "무드웨어 블러 립스틱 8종 택 1",
+    "price": 23000,
+    "category": "ALL,LIP",
+    "images": ["./image/thumb13.jpg", "./image/thumb13_2.png"]
+  },
+  "product14": {
+    "name": "오브제 워터 틴트 8종 택 1",
+    "price": 18000,
+    "category": "ALL,LIP",
+    "images": [
+      "./image/thumb14.jpg",
+      "./image/thumb14_2.png",
+      "./image/thumb14_3.png"
+    ]
+  },
+  "product15": {
+    "name": "피팅 하이라이터 2종 택 1",
+    "price": 22000,
+    "category": "ALL,FACE",
+    "images": [
+      "./image/thumb15.jpg",
+      "./image/thumb15_2.png",
+      "./image/thumb15_3.png"
+    ]
+  },
+  "product16": {
+    "name": "피팅 블러쉬 5종 택 1",
+    "price": 18000,
+    "category": "ALL,FACE",
+    "images": [
+      "./image/thumb16.jpg",
+      "./image/thumb16_2.png",
+      "./image/thumb16_3.png"
+    ]
+  },
+  "product17": {
+    "name": "무지개맨션 쇼핑백",
+    "price": 1500,
+    "category": "ALL,GIFT",
+    "images": ["./image/thumb17.jpg"]
+  },
+  "product18": {
+    "name": "아이시 글로우 틴트 11종 택 1",
+    "price": 18000,
+    "category": "ALL,LIP",
+    "images": ["./image/thumb18.jpg", "./image/thumb18_2.png"]
+  },
+  "product19": {
+    "name": "NEW 오브제 리퀴드 틴트 36종 택 1",
+    "price": 18000,
+    "category": "ALL,NEW,LIP",
+    "images": [
+      "./image/thumb19.jpg",
+      "./image/thumb19_2.png",
+      "./image/thumb19_3.png"
+    ]
+  },
+  "product20": {
+    "name": "NEW 오브제 리퀴드 2종 SET",
+    "price": 36000,
+    "category": "ALL,LIP",
+    "images": ["./image/thumb20.jpg"]
+  }
+}

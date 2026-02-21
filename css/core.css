@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+/* 웹폰트 */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+/* 전체 글자 크기 */
+html {
+  font-size: 10px;
+  font-weight: 400;
+  color: #222;
+}
+
+body {
+  font-family: "Pretendard", sans-serif;
+}
+
+.inbox {
+  max-width: 1260px;
+  margin: 0 auto;
+}
