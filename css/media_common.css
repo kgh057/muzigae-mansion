@@ -32,7 +32,7 @@
     padding: 0 10px;
   }
 
-  /* search 닫기 마우스 오버시 제거 */
+  /* search 닫기 마우스 호버시 제거 */
   .search-close:hover {
     background: none;
     color: #fff;
