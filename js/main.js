@@ -114,12 +114,12 @@ searchInput.addEventListener("keypress", function (e) {
 });
 
 /******************************* 배너 스크롤시 하나씩 *******************************/
-// 1024px 이하(모바일/태블릿 세로모드)는 일반 스크롤, 1025px 이상(PC)은 한 컷씩
+// 1024px 이하(모바일/태블릿 세로모드)는 일반 스크롤, 1025px 이상(PC/태블릿 가로모드)은 한 컷씩
 function isMobile() {
   return window.innerWidth <= 1024;
 }
 
-// PC에서만 body overflow hidden 적용 (모바일/태블릿은 기본 스크롤 유지)
+// 1025px 이상에서만 body overflow hidden 적용
 if (!isMobile()) {
   document.body.style.overflow = "hidden";
 }
@@ -145,7 +145,7 @@ window.addEventListener("resize", () => {
   if (isMobile()) {
     document.body.style.overflow = ""; // 모바일: 기본 스크롤 복원
   } else {
-    document.body.style.overflow = "hidden"; // PC: 스크롤 잠금
+    document.body.style.overflow = "hidden"; // PC,태블릿 가로: 스크롤 잠금
   }
 });
 
@@ -153,7 +153,7 @@ window.addEventListener("resize", () => {
 const bannerSections = document.querySelectorAll(".banner-section");
 const pageCnt = bannerSections.length;
 
-// 광클 방지 상태 변수
+// 광클 방지 상태 변수 
 let stopWheel = false;
 const TIME_GAP = 600; // 섹션 전환 후 600ms 동안 추가 입력 무시
 
@@ -167,12 +167,17 @@ function blockWheel() {
   return false;
 }
 
-// 휠 이벤트 
+// 공통 섹션 이동 함수
+function moveToSection(index) {
+  bannerSections[index].scrollIntoView({ behavior: "smooth" });
+}
+
+// 휠 이벤트 - PC(마우스 휠)용
 // passive: false 로 설정해야 e.preventDefault()가 작동함
 window.addEventListener(
   "wheel",
   (e) => {
-    // 모바일/태블릿에서는 휠 이벤트 무시 → 기본 스크롤 동작
+    // 1024px 이하에서는 휠 이벤트 무시 → 기본 스크롤 동작
     if (isMobile()) return;
 
     e.preventDefault(); // 기본 스크롤 막기
@@ -182,17 +187,66 @@ window.addEventListener(
     let dir = e.wheelDelta;
 
     if (dir < 0) {
-      // 아래 방향 → 다음 섹션
       pgNo++;
       if (pgNo >= pageCnt) pgNo = pageCnt - 1; // 마지막 섹션에서 고정
     } else if (dir > 0) {
-      // 위 방향 → 이전 섹션
       pgNo--;
       if (pgNo < 0) pgNo = 0; // 첫 섹션에서 고정
     }
 
-    // 해당 섹션으로 부드럽게 이동
-    bannerSections[pgNo].scrollIntoView({ behavior: "smooth" });
+    moveToSection(pgNo);
   },
   { passive: false },
+);
+
+// 터치 스와이프 이벤트 - 태블릿 가로모드(1025px 이상 터치 기기)용
+let touchStartY = 0;
+let isSwiping = false;
+
+window.addEventListener(
+  "touchstart",
+  (e) => {
+    // 1024px 이하에서는 무시 → 기본 스크롤 동작
+    if (isMobile()) return;
+    touchStartY = e.touches[0].clientY;
+    isSwiping = false;
+  },
+  { passive: true },
+);
+
+window.addEventListener(
+  "touchmove",
+  (e) => {
+    if (isMobile()) return;
+    isSwiping = true;
+  },
+  { passive: true },
+);
+
+window.addEventListener(
+  "touchend",
+  (e) => {
+    // 1024px 이하이거나 스와이프가 아니면 무시
+    if (isMobile() || !isSwiping) return;
+    if (blockWheel()) return; // 광클 방지
+
+    const touchEndY = e.changedTouches[0].clientY;
+    const diff = touchStartY - touchEndY;
+
+    // 50px 이상 스와이프해야 섹션 전환 (오터치 방지)
+    if (Math.abs(diff) < 50) return;
+
+    if (diff > 0) {
+      // 위로 스와이프 → 다음 섹션
+      pgNo++;
+      if (pgNo >= pageCnt) pgNo = pageCnt - 1;
+    } else {
+      // 아래로 스와이프 → 이전 섹션
+      pgNo--;
+      if (pgNo < 0) pgNo = 0;
+    }
+
+    moveToSection(pgNo);
+  },
+  { passive: true },
 );
