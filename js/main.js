@@ -53,7 +53,7 @@ document.addEventListener("click", (e) => {
 /******************************* search *******************************/
 // 검색 기능 추가
 const searchBtn = document.querySelector(
-  ".right-menu .menu-list a:first-child"
+  ".right-menu .menu-list a:first-child",
 );
 const searchOverlay = document.querySelector(".search");
 const searchClose = document.querySelector(".search-close");
@@ -114,94 +114,69 @@ searchInput.addEventListener("keypress", function (e) {
 });
 
 /******************************* 배너 스크롤시 하나씩 *******************************/
-// 1. body에 overflow:hidden 셋팅
-// 모바일 체크 함수
 function isMobile() {
-  return window.innerWidth <= 800;
+  return window.innerWidth <= 1024;
 }
 
-// PC/태블릿에서만 body overflow hidden 적용
+// PC에서만 overflow hidden 적용
 if (!isMobile()) {
   document.body.style.overflow = "hidden";
 }
 
-// 2. html에 scroll-behavior:smooth 셋팅
 document.documentElement.style.scrollBehavior = "smooth";
 
-// 3. 새로고침시 스크롤위치 맨위로 이동하기
 setTimeout(() => {
   window.scrollTo(0, 0);
 }, 400);
 
-// 4. 전역 페이지번호
 let pgNo = 0;
-
-// 5. 이동단위 -> 윈도우 높이값
 let winH = window.innerHeight;
 
-// 윈도우 리사이즈 시 높이값 업데이트
 window.addEventListener("resize", () => {
   winH = window.innerHeight;
+
+  // 리사이즈 시 모바일/PC 전환에 따라 overflow 재적용
+  if (isMobile()) {
+    document.body.style.overflow = "";
+  } else {
+    document.body.style.overflow = "hidden";
+  }
 });
 
-// 6. 배너 섹션 수집
 const bannerSections = document.querySelectorAll(".banner-section");
 const pageCnt = bannerSections.length;
 
-console.log("배너개수", pageCnt);
-
-// 7. 광휠금지상태변수
 let stopWheel = false;
 const TIME_GAP = 600;
 
-// 8. 광휠금지함수
 function blockWheel() {
   if (stopWheel) return true;
-
   stopWheel = true;
   setTimeout(() => {
     stopWheel = false;
   }, TIME_GAP);
-
   return false;
 }
 
-// 9. 휠 이벤트 (PC용)
 window.addEventListener(
   "wheel",
   (e) => {
-    // 모바일에서는 휠 이벤트 비활성화
     if (isMobile()) return;
 
     e.preventDefault();
-
-    // 광휠막기
     if (blockWheel()) return;
 
-    // 휠 방향 알아내기
     let dir = e.wheelDelta;
 
-    // 방향에 따른 페이지번호 증감
     if (dir < 0) {
-      // 아랫방향
       pgNo++;
       if (pgNo >= pageCnt) pgNo = pageCnt - 1;
     } else if (dir > 0) {
-      // 윗방향
       pgNo--;
       if (pgNo < 0) pgNo = 0;
     }
 
-    console.log("휠", dir, pgNo);
-
-    // 화면 크기에 따라 스크롤 방식 변경
-    if (window.innerWidth <= 500) {
-      // 모바일: 섹션의 실제 위치로 이동
-      bannerSections[pgNo].scrollIntoView({ behavior: "smooth" });
-    } else {
-      // PC: 윈도우 높이 기준으로 이동
-      window.scrollTo(0, pgNo * winH);
-    }
+    bannerSections[pgNo].scrollIntoView({ behavior: "smooth" });
   },
-  { passive: false }
+  { passive: false },
 );
