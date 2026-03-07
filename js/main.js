@@ -16,43 +16,32 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /******************************* 메뉴 *******************************/
-/******************************* 메뉴 *******************************/
+// 사이드 메뉴 열기/닫기
 const productBtn = document.querySelector(".nav-list li:first-child a");
 const gnbBtn = document.querySelector(".gnb-btn");
 const sideMenu = document.querySelector(".side-menu");
 const closeBtn = document.querySelector(".close");
 
-// 사이드 메뉴 열기
-function openSideMenu() {
-  sideMenu.classList.add("active");
-  document.body.style.overflow = "hidden";
-  document.documentElement.style.overflow = "hidden"; // html도 막기
-}
-
-// 사이드 메뉴 닫기
-function closeSideMenu() {
-  sideMenu.classList.remove("active");
-  document.documentElement.style.overflow = ""; // html 복원
-  // PC(1280px 이상)는 overflow hidden 유지, 모바일/태블릿은 복원
-  if (isMobile()) {
-    document.body.style.overflow = "";
-  }
-}
-
 // PRODUCT 클릭시 메뉴 열기
 productBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  openSideMenu();
+  sideMenu.classList.add("active");
+  document.body.style.overflow = "hidden"; // 배경 스크롤 막기
 });
 
 // gnb-btn 클릭시 메뉴 열기
 gnbBtn.addEventListener("click", () => {
-  openSideMenu();
+  sideMenu.classList.add("active");
+  document.body.style.overflow = "hidden"; // 배경 스크롤 막기
 });
 
 // CLOSE 버튼 클릭시 닫기
 closeBtn.addEventListener("click", () => {
-  closeSideMenu();
+  sideMenu.classList.remove("active");
+  // PC(1280px 이상)는 overflow hidden 유지, 모바일/태블릿은 복원
+  if (isMobile()) {
+    document.body.style.overflow = "";
+  }
 });
 
 // 사이드 메뉴 배경 클릭시 닫기
@@ -63,18 +52,14 @@ document.addEventListener("click", (e) => {
     !gnbBtn.contains(e.target) &&
     !productBtn.contains(e.target)
   ) {
-    closeSideMenu();
+    sideMenu.classList.remove("active");
+    // PC(1280px 이상)는 overflow hidden 유지, 모바일/태블릿은 복원
+    if (isMobile()) {
+      document.body.style.overflow = "";
+    }
   }
 });
 
-// 사이드 메뉴 터치 이벤트 - 메뉴 안에서 터치가 배경으로 전파되는 것 방지
-sideMenu.addEventListener(
-  "touchmove",
-  (e) => {
-    e.stopPropagation(); // 배경으로 전파 차단
-  },
-  { passive: true },
-);
 /******************************* search *******************************/
 // 검색 기능 추가
 const searchBtn = document.querySelector(
