@@ -26,22 +26,16 @@ const closeBtn = document.querySelector(".close");
 productBtn.addEventListener("click", (e) => {
   e.preventDefault();
   sideMenu.classList.add("active");
-  document.body.style.overflow = "hidden"; // 배경 스크롤 막기
 });
 
 // gnb-btn 클릭시 메뉴 열기
 gnbBtn.addEventListener("click", () => {
   sideMenu.classList.add("active");
-  document.body.style.overflow = "hidden"; // 배경 스크롤 막기
 });
 
 // CLOSE 버튼 클릭시 닫기
 closeBtn.addEventListener("click", () => {
   sideMenu.classList.remove("active");
-  // PC(1280px 이상)는 overflow hidden 유지, 모바일/태블릿은 복원
-  if (isMobile()) {
-    document.body.style.overflow = "";
-  }
 });
 
 // 사이드 메뉴 배경 클릭시 닫기
@@ -53,10 +47,6 @@ document.addEventListener("click", (e) => {
     !productBtn.contains(e.target)
   ) {
     sideMenu.classList.remove("active");
-    // PC(1280px 이상)는 overflow hidden 유지, 모바일/태블릿은 복원
-    if (isMobile()) {
-      document.body.style.overflow = "";
-    }
   }
 });
 
@@ -124,7 +114,7 @@ searchInput.addEventListener("keypress", function (e) {
 });
 
 /******************************* 배너 스크롤시 하나씩 *******************************/
-// 1279px 이하(모바일, 태블릿)는 일반 스크롤, 1280px 이상(PC, 노트북)은 한 컷씩
+// 1279px 이하(모바일, 태블릿)는 일반 스크롤, 1280px 이상(PC, 노트북)은 한 컷씩 
 function isMobile() {
   return window.innerWidth <= 1279;
 }
@@ -134,7 +124,7 @@ if (!isMobile()) {
   document.body.style.overflow = "hidden";
 }
 
-// 부드러운 스크롤 효과
+// 부드러운 스크롤 효과 
 document.documentElement.style.scrollBehavior = "smooth";
 
 // 새로고침 시 스크롤 위치 맨 위로 초기화
@@ -163,7 +153,7 @@ window.addEventListener("resize", () => {
 const bannerSections = document.querySelectorAll(".banner-section");
 const pageCnt = bannerSections.length;
 
-// 광클 방지 상태 변수
+// 광클 방지 상태 변수 
 let stopWheel = false;
 const TIME_GAP = 600; // 섹션 전환 후 600ms 동안 추가 입력 무시
 
