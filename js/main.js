@@ -114,17 +114,17 @@ searchInput.addEventListener("keypress", function (e) {
 });
 
 /******************************* 배너 스크롤시 하나씩 *******************************/
-// 1024px 이하(모바일/태블릿 세로모드)는 일반 스크롤, 1025px 이상(PC/태블릿 가로모드)은 한 컷씩
+// 1279px 이하(모바일, 태블릿)는 일반 스크롤, 1280px 이상(PC, 노트북)은 한 컷씩 
 function isMobile() {
-  return window.innerWidth <= 1024;
+  return window.innerWidth <= 1279;
 }
 
-// 1025px 이상에서만 body overflow hidden 적용
+// 1280px 이상에서만 body overflow hidden 적용
 if (!isMobile()) {
   document.body.style.overflow = "hidden";
 }
 
-// 부드러운 스크롤 효과 설정
+// 부드러운 스크롤 효과 
 document.documentElement.style.scrollBehavior = "smooth";
 
 // 새로고침 시 스크롤 위치 맨 위로 초기화
@@ -143,9 +143,9 @@ window.addEventListener("resize", () => {
   winH = window.innerHeight;
 
   if (isMobile()) {
-    document.body.style.overflow = ""; // 모바일: 기본 스크롤 복원
+    document.body.style.overflow = ""; // 모바일, 태블릿: 기본 스크롤 복원
   } else {
-    document.body.style.overflow = "hidden"; // PC,태블릿 가로: 스크롤 잠금
+    document.body.style.overflow = "hidden"; // PC, 노트북: 스크롤 잠금
   }
 });
 
@@ -177,13 +177,13 @@ function moveToSection(index) {
 window.addEventListener(
   "wheel",
   (e) => {
-    // 1024px 이하에서는 휠 이벤트 무시 → 기본 스크롤 동작
+    // 1279px 이하에서는 휠 이벤트 무시 → 기본 스크롤 동작
     if (isMobile()) return;
 
     e.preventDefault(); // 기본 스크롤 막기
     if (blockWheel()) return; // 광클 방지
 
-    // 휠 방향 감지 
+    // 휠 방향 감지
     let dir = e.wheelDelta;
 
     if (dir < 0) {
@@ -199,14 +199,13 @@ window.addEventListener(
   { passive: false },
 );
 
-// 터치 스와이프 이벤트 - 태블릿 가로모드(1025px 이상 터치 기기)용
+// 터치 스와이프 이벤트 - 1280px 이상 터치 기기용
 let touchStartY = 0;
 let isSwiping = false;
 
 window.addEventListener(
   "touchstart",
   (e) => {
-    // 1024px 이하에서는 무시 → 기본 스크롤 동작
     if (isMobile()) return;
     touchStartY = e.touches[0].clientY;
     isSwiping = false;
@@ -226,22 +225,18 @@ window.addEventListener(
 window.addEventListener(
   "touchend",
   (e) => {
-    // 1024px 이하이거나 스와이프가 아니면 무시
     if (isMobile() || !isSwiping) return;
-    if (blockWheel()) return; // 광클 방지
+    if (blockWheel()) return;
 
     const touchEndY = e.changedTouches[0].clientY;
     const diff = touchStartY - touchEndY;
 
-    // 50px 이상 스와이프해야 섹션 전환 (오터치 방지)
-    if (Math.abs(diff) < 50) return;
+    if (Math.abs(diff) < 50) return; // 오터치 방지
 
     if (diff > 0) {
-      // 위로 스와이프 → 다음 섹션
       pgNo++;
       if (pgNo >= pageCnt) pgNo = pageCnt - 1;
     } else {
-      // 아래로 스와이프 → 이전 섹션
       pgNo--;
       if (pgNo < 0) pgNo = 0;
     }
